@@ -2,10 +2,79 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int dial[100];
+vector<int> instructions;
+int zeroCount = 0;
+
+void initializeDial()
+{
+    for (int i = 0; i < 100; ++i)
+    {
+        dial[i] = i;
+    }
+}
+
+int ConvertToInt(string str) {
+    int flip = 1;
+    if(str[0] == 'L')
+		flip = -1;
+
+	int length = str.length() - 1;
+    return stoi(str.substr(1,length)) * flip;
+}
+
+void ReadFile() {
+    string text;
+	ifstream file("PuzzleInput.txt");
+    while(getline(file, text)) {
+		instructions.push_back(ConvertToInt(text));
+	}
+}
+
+void TurnDial() {
+    int startPos = 50;
+    int dialLength = 100;
+	int position = startPos;
+	int pastDialLength = 0;
+    for (int i = 0; i < instructions.size(); i++) {
+
+		position = (((position + instructions[i]) % dialLength) + dialLength) % dialLength;
+      
+        /*
+		position += instructions[i];
+
+        if (position > dialLength) {
+            pastDialLength = position - dialLength - 1;
+            position = pastDialLength;
+        }
+        else if(position < 0) {
+            pastDialLength = dialLength - abs(position) + 1;
+			position = pastDialLength;
+        }
+        */
+		cout << "Current Position: " << position << " rotated by " << instructions[i] << endl;
+
+        if (position == 0) {
+			zeroCount++;
+        }
+    }
+}
+
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    initializeDial();
+	ReadFile();
+	TurnDial();
+	cout << "Zero count: " << zeroCount << endl;
+	
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
