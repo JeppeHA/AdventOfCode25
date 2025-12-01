@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jeppe\\Github\\AdventOfCode25\\AdventOfCodeProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C3C07D3C-1633-46F8-9ADC-60AFF3A8C98E}|AdventOfCodeProject\\AdventOfCodeProject.vcxproj|C:\\Users\\jeppe\\Github\\AdventOfCode25\\AdventOfCodeProject\\AdventOfCodeProject\\AdventOfCodeProject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3C07D3C-1633-46F8-9ADC-60AFF3A8C98E}|AdventOfCodeProject\\AdventOfCodeProject.vcxproj|solutionrelative:AdventOfCodeProject\\AdventOfCodeProject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdventOfCodeProject.cpp",
+              "DocumentMoniker": "C:\\Users\\jeppe\\Github\\AdventOfCode25\\AdventOfCodeProject\\AdventOfCodeProject\\AdventOfCodeProject.cpp",
+              "RelativeDocumentMoniker": "AdventOfCodeProject\\AdventOfCodeProject.cpp",
+              "ToolTip": "C:\\Users\\jeppe\\Github\\AdventOfCode25\\AdventOfCodeProject\\AdventOfCodeProject\\AdventOfCodeProject.cpp",
+              "RelativeToolTip": "AdventOfCodeProject\\AdventOfCodeProject.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-01T21:49:12.547Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
