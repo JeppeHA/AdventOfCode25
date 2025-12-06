@@ -16,6 +16,9 @@
     <Filter Include="Day 1">
       <UniqueIdentifier>{652598d8-98e6-492a-b9ac-1d6a1914325a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Day 2">
+      <UniqueIdentifier>{baeea017-7802-4330-a04f-d107cdb6ae72}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdventOfCodeProject.cpp">
@@ -29,5 +32,6 @@
     <Text Include="TestCase.txt">
       <Filter>Day 1</Filter>
     </Text>
+    <Text Include="Ids.txt" />
   </ItemGroup>
 </Project>

@@ -1,12 +1,20 @@
-// AdventOfCodeProject.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// AdventOfCodeProject.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
+#include <unordered_map>
+#include <map>
+#include <unordered_set>
+#include <sstream>
+
+
 using namespace std;
 
+
+vector<string> Ids;
 int dial[100];
 vector<int> instructions;
 int zeroCount = 0;
@@ -36,6 +44,74 @@ void ReadFile() {
 	}
 }
 
+void ReadDay2File() {
+    string text;
+    ifstream file("Ids.txt");
+    char del = ',';
+    while (getline(file, text, del)) {
+        Ids.push_back(text);
+    }
+
+    for (int i = 0; i < Ids.size(); i++)
+    {
+       // cout << Ids[i] << endl;
+    }
+}
+
+bool CheckIfInvalid(int num) {
+    unordered_set<char> seen;
+    string s = to_string(num);
+
+    for (char c : s) {
+        if (seen.count(c)) {
+            return false;   
+        }
+        seen.insert(c);
+    }
+    return true;  
+}
+
+
+void CountInvalidIds() {
+    int numOfInvalids = 0;
+
+    for (string line : Ids) {
+        vector<vector<string>> idPairs;  
+
+        stringstream ss(line);
+        string segment;
+        while (getline(ss, segment, ',')) {
+            segment.erase(remove_if(segment.begin(), segment.end(), ::isspace), segment.end());
+
+            int pos = segment.find('-');
+            if (pos == string::npos) continue;
+
+            string left = segment.substr(0, pos);
+            string right = segment.substr(pos + 1);
+
+            idPairs.push_back({ left, right });
+        }
+        
+        for (auto& p : idPairs) {
+            int L = stoi(p[0]);
+            int R = stoi(p[1]);
+            if (p[0].length() % 2 != 0 && p[1].length() % 2 != 0)
+                continue;
+
+            for (int i = L; i <= R; i++) {
+                if (!CheckIfInvalid(i)) {  
+                    numOfInvalids++;
+                }
+            }
+        }
+    }
+
+    cout << "Invalid count: " << numOfInvalids << endl;
+}
+
+
+
+
 void TurnDial() {
     int startPos = 50;
     int dialLength = 100;
@@ -44,19 +120,7 @@ void TurnDial() {
     for (int i = 0; i < instructions.size(); i++) {
 
 		position = (((position + instructions[i]) % dialLength) + dialLength) % dialLength;
-      
-        /*
-		position += instructions[i];
 
-        if (position > dialLength) {
-            pastDialLength = position - dialLength - 1;
-            position = pastDialLength;
-        }
-        else if(position < 0) {
-            pastDialLength = dialLength - abs(position) + 1;
-			position = pastDialLength;
-        }
-        */
 		cout << "Current Position: " << position << " rotated by " << instructions[i] << endl;
 
         if (position == 0) {
@@ -70,20 +134,6 @@ void TurnDial() {
 
 int main()
 {
-    initializeDial();
-	ReadFile();
-	TurnDial();
-	cout << "Zero count: " << zeroCount << endl;
-	
+    ReadDay2File();
+    CountInvalidIds();
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

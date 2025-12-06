@@ -126,6 +126,7 @@
     <ClCompile Include="AdventOfCodeProject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Ids.txt" />
     <Text Include="PuzzleInput.txt" />
     <Text Include="TestCase.txt" />
   </ItemGroup>
