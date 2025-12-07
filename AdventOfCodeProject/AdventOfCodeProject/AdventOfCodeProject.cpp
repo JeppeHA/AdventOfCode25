@@ -44,71 +44,6 @@ void ReadFile() {
 	}
 }
 
-void ReadDay2File() {
-    string text;
-    ifstream file("Ids.txt");
-    char del = ',';
-    while (getline(file, text, del)) {
-        Ids.push_back(text);
-    }
-
-    for (int i = 0; i < Ids.size(); i++)
-    {
-       // cout << Ids[i] << endl;
-    }
-}
-
-bool CheckIfInvalid(int num) {
-    unordered_set<char> seen;
-    string s = to_string(num);
-
-    for (char c : s) {
-        if (seen.count(c)) {
-            return false;   
-        }
-        seen.insert(c);
-    }
-    return true;  
-}
-
-
-void CountInvalidIds() {
-    int numOfInvalids = 0;
-
-    for (string line : Ids) {
-        vector<vector<string>> idPairs;  
-
-        stringstream ss(line);
-        string segment;
-        while (getline(ss, segment, ',')) {
-            segment.erase(remove_if(segment.begin(), segment.end(), ::isspace), segment.end());
-
-            int pos = segment.find('-');
-            if (pos == string::npos) continue;
-
-            string left = segment.substr(0, pos);
-            string right = segment.substr(pos + 1);
-
-            idPairs.push_back({ left, right });
-        }
-        
-        for (auto& p : idPairs) {
-            int L = stoi(p[0]);
-            int R = stoi(p[1]);
-            if (p[0].length() % 2 != 0 && p[1].length() % 2 != 0)
-                continue;
-
-            for (int i = L; i <= R; i++) {
-                if (!CheckIfInvalid(i)) {  
-                    numOfInvalids++;
-                }
-            }
-        }
-    }
-
-    cout << "Invalid count: " << numOfInvalids << endl;
-}
-
 
 
 
@@ -131,9 +66,58 @@ void TurnDial() {
 
 
 
+static inline string trim(const string& s) {
+    size_t start = s.find_first_not_of(" \t\r\n");
+    size_t end = s.find_last_not_of(" \t\r\n");
+    if (start == string::npos) return "";
+    return s.substr(start, end - start + 1);
+}
+
+void ReadDay2File() {
+    string text;
+    ifstream file("Ids.txt");
+    char del = ',';
+    while (getline(file, text, del)) {
+        Ids.push_back(trim(text));
+    }
+}
+
+
+bool isDoubleString(long long n) {
+    string s = to_string(n);
+    int len = s.size();
+    if (len % 2 != 0) return false;
+
+    int half = len / 2;
+    return s.substr(0, half) == s.substr(half, half);
+}
+
+
+
+
 
 int main()
 {
     ReadDay2File();
-    CountInvalidIds();
+
+    long long totalSum = 0;
+
+    for (auto& range : Ids) {
+        if (range.empty()) continue;
+
+        auto dashPos = range.find('-');
+        if (dashPos == string::npos) continue;
+
+        long long L = stoll(range.substr(0, dashPos));
+        long long R = stoll(range.substr(dashPos + 1));
+
+        for (long long x = L; x <= R; ++x) {
+            if (isDoubleString(x)) {
+                totalSum += x;
+            }
+        }
+    }
+
+    cout << totalSum << "\n";
+    return 0;
 }

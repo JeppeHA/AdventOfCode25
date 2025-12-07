@@ -1,4 +1,4 @@
 ﻿  AdventOfCodeProject.cpp
 C:\Users\jeppe\Github\AdventOfCode25\AdventOfCodeProject\AdventOfCodeProject\AdventOfCodeProject.cpp(35,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\jeppe\Github\AdventOfCode25\AdventOfCodeProject\AdventOfCodeProject\AdventOfCodeProject.cpp(88,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jeppe\Github\AdventOfCode25\AdventOfCodeProject\AdventOfCodeProject\AdventOfCodeProject.cpp(148,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   AdventOfCodeProject.vcxproj -> C:\Users\jeppe\Github\AdventOfCode25\AdventOfCodeProject\x64\Debug\AdventOfCodeProject.exe
