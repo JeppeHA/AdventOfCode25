@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36717.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CArrays", "CArrays\CArrays.vcxproj", "{B52DC33B-5E72-4704-BAD4-C215749B1FCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B52DC33B-5E72-4704-BAD4-C215749B1FCE}.Debug|x64.ActiveCfg = Debug|x64
+		{B52DC33B-5E72-4704-BAD4-C215749B1FCE}.Debug|x64.Build.0 = Debug|x64
+		{B52DC33B-5E72-4704-BAD4-C215749B1FCE}.Debug|x86.ActiveCfg = Debug|Win32
+		{B52DC33B-5E72-4704-BAD4-C215749B1FCE}.Debug|x86.Build.0 = Debug|Win32
+		{B52DC33B-5E72-4704-BAD4-C215749B1FCE}.Release|x64.ActiveCfg = Release|x64
+		{B52DC33B-5E72-4704-BAD4-C215749B1FCE}.Release|x64.Build.0 = Release|x64
+		{B52DC33B-5E72-4704-BAD4-C215749B1FCE}.Release|x86.ActiveCfg = Release|Win32
+		{B52DC33B-5E72-4704-BAD4-C215749B1FCE}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2FDCA7B-EB31-4064-BF9C-A2742DCAF129}
+	EndGlobalSection
+EndGlobal
